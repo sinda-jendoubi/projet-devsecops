@@ -55,7 +55,7 @@ pipeline {
         sh '''
           sed "s|IMAGE_PLACEHOLDER|$IMAGE:$TAG|" k8s/deployment.yaml | kubectl apply -f -
           kubectl apply -f k8s/service.yaml
-          kubectl rollout status deployment/monapp --timeout=300s
+          kubectl rollout status deployment/monapp --timeout=600s
         '''
       }
     }
